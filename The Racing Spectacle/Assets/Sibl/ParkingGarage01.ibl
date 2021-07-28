@@ -1,0 +1,32 @@
+[Header]
+ICOfile = "ParkingGarage01_Thumb.jpg"
+Name = "ParkingGarage01"
+Author = ""
+Location = ""
+Comment = ""
+
+[Background]
+BGfile = "ParkingGarage01_bg.jpg"
+BGmap = 1
+BGu = 0.000000
+BGv = 0.000000
+BGheight = 6350
+
+[Enviroment]
+EVfile = "ParkingGarage01_Env.hdr"
+EVmap = 1
+EVu = 0.000000
+EVv = 0.000000
+EVheight = 0
+EVmulti = 1.000000
+EVgamma = 1.000000
+
+[Reflection]
+REFfile = "ParkingGarage01_Ref.hdr"
+REFmap = 1
+REFu = 0.000000
+REFv = 0.000000
+REFheight = 0
+REFmulti = 1.000000
+REFgamma = 1.000000
+
