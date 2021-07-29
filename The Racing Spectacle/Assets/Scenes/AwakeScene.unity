@@ -942,18 +942,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 084143b49d4e3cf48be20d6c538eb566, type: 3}
-    m_FontSize: 31
+    m_FontSize: 45
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 66
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WELCOME TO THE RACING SPECTACULAR
+  m_Text: SINGLEPLAYER
 --- !u!222 &206489483
 CanvasRenderer:
   m_ObjectHideFlags: 0

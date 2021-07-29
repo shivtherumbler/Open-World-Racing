@@ -48,6 +48,7 @@ public class controller : MonoBehaviour
     public float lowPitch = 1f;
     public float highPitch = 6f;
     public float maxSpeed = 200;
+    private bool buttonBreak = false;
 
     [HideInInspector] public bool nitrusFlag = false;
     public ParticleSystem[] nitrusSmoke;
@@ -93,6 +94,7 @@ public class controller : MonoBehaviour
         CheckForSkid();
         activateNitrus();
         anim.SetFloat("turn", animTurn);
+
     }
 
     private void SteerVehicle()
@@ -177,15 +179,43 @@ public class controller : MonoBehaviour
 
         kph = rb.velocity.magnitude * 3.6f;
         
-        if(manager.handbrake)
+
+
+        /*if(manager.handbrake)
         {
             wheels[3].brakeTorque = wheels[2].brakeTorque = brakePower;
         }
         else
         {
             wheels[3].brakeTorque = wheels[2].brakeTorque = 0;
-        }
+        }*/
 
+    }
+
+    public void OnBrakeDown()
+    {
+        if(buttonBreak == false)
+        {
+            wheels[3].brakeTorque = wheels[2].brakeTorque = brakePower;
+            for (int i = 0; i < manager.brakeLight.Length; i++)
+                manager.brakeLight[i].SetActive(true);
+
+            buttonBreak = true;
+        }
+        
+    }
+
+    public void OnBrakeUp()
+    {
+        if(buttonBreak == true)
+        {
+            wheels[3].brakeTorque = wheels[2].brakeTorque = 0;
+            for (int i = 0; i < manager.brakeLight.Length; i++)
+                manager.brakeLight[i].SetActive(false);
+
+            buttonBreak = false;
+        }
+        
     }
 
     void AnimateWheels()
