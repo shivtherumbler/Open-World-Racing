@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public VehicleList list;
     public controller control;
+    public InputManager input;
     public GameObject needle;
     public GameObject startPos;
     private float startPosition = 18f, endPosition = -198f;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(list.vehicles[PlayerPrefs.GetInt("pointer")], startPos.transform.position, startPos.transform.rotation);
         control = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
+        input = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
     }
 
     private void FixedUpdate()
@@ -101,6 +103,26 @@ public class GameManager : MonoBehaviour
     public void nitrusUI()
     {
         nitrusSlider.value = control.nitrusValue;
+    }
+
+    public void AccelerateDown()
+    {
+        input.vertical = 1;
+    }
+    
+    public void AccelerateUp()
+    {
+        input.vertical = 0;
+    }
+
+    public void BrakeDown()
+    {
+        input.vertical = -1;
+    }
+
+    public void BrakeUp()
+    {
+        input.vertical = 0;
     }
 
 }

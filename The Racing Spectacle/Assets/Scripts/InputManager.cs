@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
     private bool firstPerson = false;
     public GameObject SwitchButton;
     public GameObject brakeButton;
+    public GameObject nitroButton;
 
 
     private void Start()
@@ -25,8 +26,8 @@ public class InputManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
+        //vertical = Input.GetAxis("Vertical");
+        //horizontal = Input.GetAxis("Horizontal");
         /*handbrake = (Input.GetAxis("Jump") != 0)? true : false;
         if (Input.GetAxis("Jump") != 0)
         {
@@ -38,26 +39,32 @@ public class InputManager : MonoBehaviour
             for (int i = 0; i < brakeLight.Length; i++)
                 brakeLight[i].SetActive(false);
         }*/
-        if (Input.GetKey(KeyCode.LeftShift)) boosting = true;
-        else boosting = false;
+        //if (Input.GetKey(KeyCode.LeftShift)) boosting = true;
+        //else boosting = false;
 
         if(Application.loadedLevelName == "AwakeScene")
         {
             SwitchButton.SetActive(false);
             brakeButton.SetActive(false);
+            nitroButton.SetActive(false);
+
         }
-        if(this.gameObject.tag == "Player")
+        if (this.gameObject.tag == "Player")
         {
             if (Application.loadedLevelName == "AwakeScene")
             {
                 SwitchButton.SetActive(false);
                 brakeButton.SetActive(false);
-            }            
+                nitroButton.SetActive(false);
+
+            }
 
             else
             {
                 SwitchButton.SetActive(true);
                 brakeButton.SetActive(true);
+                nitroButton.SetActive(true);
+
             }
 
         }
@@ -65,6 +72,8 @@ public class InputManager : MonoBehaviour
         {
             SwitchButton.SetActive(false);
             brakeButton.SetActive(false);
+            nitroButton.SetActive(false);
+
         }
 
     }
@@ -84,8 +93,18 @@ public class InputManager : MonoBehaviour
             displays[1].SetActive(true);
             displays[0].SetActive(false);
             firstPerson = true;
-        }
-        
+        }   
 
     }
+
+    public void Boosting()
+    {
+        boosting = true;
+    }
+
+    public void NotBoosting()
+    {
+        boosting = false;
+    }
+
 }

@@ -49,6 +49,9 @@ public class controller : MonoBehaviour
     public float highPitch = 6f;
     public float maxSpeed = 200;
     private bool buttonBreak = false;
+    public bool steering = true;
+    public bool joystick = false;
+    public bool gyroscope = false;
 
     [HideInInspector] public bool nitrusFlag = false;
     public ParticleSystem[] nitrusSmoke;
@@ -79,6 +82,7 @@ public class controller : MonoBehaviour
             skidSmoke[i] = Instantiate(smokePrefab);
             skidSmoke[i].Stop();
         }
+
     }
 
 
@@ -94,6 +98,21 @@ public class controller : MonoBehaviour
         CheckForSkid();
         activateNitrus();
         anim.SetFloat("turn", animTurn);
+
+        if(steering == true)
+        {
+            manager.horizontal = SimpleInput.GetAxis("Horizontal");
+        }    
+        else if(joystick == true)
+        {
+            manager.vertical = SimpleInput.GetAxis("Vertical");
+            manager.horizontal = SimpleInput.GetAxis("Horizontal");
+        }
+        else if(gyroscope == true)
+        {
+            manager.horizontal = Input.acceleration.x;
+
+        }
 
     }
 
@@ -122,7 +141,7 @@ public class controller : MonoBehaviour
             wheels[0].steerAngle = 0;
             wheels[1].steerAngle = 0;
 
-            animTurn = 0;
+                animTurn = 0;
         }
 
     }
@@ -371,4 +390,5 @@ public class controller : MonoBehaviour
         holder.rotation = Quaternion.Euler(90, 0, 0);
         Destroy(holder.gameObject, 30);
     }
+
 }
