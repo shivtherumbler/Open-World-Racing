@@ -6135,7 +6135,7 @@ GameObject:
   - component: {fileID: 4846739960989625125}
   m_Layer: 0
   m_Name: bugatti_chiron
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6842,8 +6842,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2201421293988407869}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.953717, z: 0, w: 0.30070582}
+  m_LocalPosition: {x: 565.5, y: 135.95, z: 217.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1525160263210388264}
@@ -6985,7 +6985,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2201421293988407869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61f073f1d4c2ba34fa06ab09d457e504, type: 3}
   m_Name: 
@@ -7003,6 +7003,9 @@ MonoBehaviour:
   lowPitch: 1
   highPitch: 6
   maxSpeed: 250
+  steering: 1
+  joystick: 0
+  gyroscope: 0
   nitrusFlag: 0
   nitrusSmoke:
   - {fileID: 7738193595435958702}
@@ -7048,6 +7051,13 @@ MonoBehaviour:
   SwitchButton: {fileID: 1565903213278363433}
   brakeButton: {fileID: 202484125547740056}
   nitroButton: {fileID: 8488929073874592938}
+  way: {fileID: 0}
+  currentWaypoint: {fileID: 0}
+  circuit: []
+  distanceOffset: 5
+  steerForce: 1
+  acceleration: 0.5
+  currentNode: 0
 --- !u!82 &2860542589841795963
 AudioSource:
   m_ObjectHideFlags: 0

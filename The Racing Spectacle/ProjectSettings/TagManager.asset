@@ -6,6 +6,12 @@ TagManager:
   tags:
   - path
   - skidmarks
+  - circuit
+  - road
+  - checkpoint
+  - AI
+  - Bullet
+  - Car
   layers:
   - Default
   - TransparentFX

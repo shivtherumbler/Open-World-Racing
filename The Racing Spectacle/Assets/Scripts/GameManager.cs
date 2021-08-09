@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instantiate(list.vehicles[PlayerPrefs.GetInt("pointer")], startPos.transform.position, startPos.transform.rotation);
+        list.vehicles[PlayerPrefs.GetInt("pointer")].tag = "Player";
         control = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
         input = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
     }

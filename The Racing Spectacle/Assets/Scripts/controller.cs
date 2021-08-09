@@ -93,6 +93,7 @@ public class controller : MonoBehaviour
         AnimateWheels();
         MoveVehicle();
         SteerVehicle();
+        if (gameObject.tag == "AI") return;
         getFriction();
         CalcEngineSound();
         CheckForSkid();

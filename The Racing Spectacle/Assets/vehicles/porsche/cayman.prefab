@@ -11553,6 +11553,7 @@ GameObject:
   - component: {fileID: 9002226818101975006}
   - component: {fileID: 2637011706743269714}
   - component: {fileID: 8666680814192271688}
+  - component: {fileID: 7356198647262378491}
   m_Layer: 0
   m_Name: cayman
   m_TagString: Player
@@ -11588,7 +11589,7 @@ Transform:
   - {fileID: 1171222655103887285}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 49, z: 0}
 --- !u!54 &2610125035370890677
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11726,6 +11727,13 @@ MonoBehaviour:
   SwitchButton: {fileID: 5707376325147939263}
   brakeButton: {fileID: 4193098522914408086}
   nitroButton: {fileID: 8570260838236998060}
+  way: {fileID: 0}
+  currentWaypoint: {fileID: 0}
+  circuit: []
+  distanceOffset: 5
+  steerForce: 1
+  acceleration: 0.5
+  currentNode: 0
 --- !u!114 &2637011706743269714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11733,7 +11741,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2610125035370890679}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61f073f1d4c2ba34fa06ab09d457e504, type: 3}
   m_Name: 
@@ -11751,6 +11759,9 @@ MonoBehaviour:
   lowPitch: 1
   highPitch: 6
   maxSpeed: 250
+  steering: 1
+  joystick: 0
+  gyroscope: 0
   nitrusFlag: 0
   nitrusSmoke:
   - {fileID: 213976510078640752}
@@ -11865,6 +11876,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7356198647262378491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610125035370890679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f16a1ffc47d2fd4cb8602176a98c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3215195222083482068
 GameObject:
   m_ObjectHideFlags: 0
@@ -13880,7 +13903,7 @@ GameObject:
   - component: {fileID: 92510927392780421}
   m_Layer: 0
   m_Name: cayman
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20721,16 +20744,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5313137607919080636, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
   m_PrefabInstance: {fileID: 5146669262853359728}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7878052189558233034 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3042413369892052922, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
-  m_PrefabInstance: {fileID: 5146669262853359728}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3971396667413652072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8102424705716693528, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
-  m_PrefabInstance: {fileID: 5146669262853359728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6903957898626074890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1775382853162877306, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
@@ -20739,6 +20752,16 @@ GameObject:
 --- !u!1 &5316515918067309333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1055156650506670949, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
+  m_PrefabInstance: {fileID: 5146669262853359728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3971396667413652072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8102424705716693528, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
+  m_PrefabInstance: {fileID: 5146669262853359728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7878052189558233034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3042413369892052922, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
   m_PrefabInstance: {fileID: 5146669262853359728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5374086391963497460
