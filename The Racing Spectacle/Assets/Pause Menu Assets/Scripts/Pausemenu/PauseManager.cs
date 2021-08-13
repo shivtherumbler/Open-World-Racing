@@ -8,14 +8,18 @@ using System.IO;
 /// <summary>
 ///  Copyright (c) 2016 Eric Zhu 
 /// </summary>
+/// 
 namespace GreatArcStudios
 {
     /// <summary>
     /// The pause menu manager. You can extend this to make your own. Everything is pretty modular, so creating you own based off of this should be easy. Thanks for downloading and good luck! 
     /// </summary>
-    public class PauseManager : MonoBehaviour
+    using Photon.Realtime;
+    using Photon.Pun;
+    public class PauseManager : MonoBehaviourPunCallbacks
     {
         public bool isPaused;
+        public GameObject car;
 
         public controller control;
         /// <summary>
@@ -284,7 +288,14 @@ namespace GreatArcStudios
         /// </summary>
         public void Start()
         {
-            control = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
+            if(Application.loadedLevelName == "SampleScene")
+            {
+                control = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
+            }
+            if(Application.loadedLevelName == "Multi Mode")
+            {
+                control = car.GetComponent<controller>();
+            }
 
             readUseSimpleTerrain = useSimpleTerrain;
             if (useSimpleTerrain)
@@ -434,9 +445,19 @@ namespace GreatArcStudios
         /// </summary>
         public void returnToMenu()
         {
-            Application.LoadLevel(mainMenu);
+            
+            
             Time.timeScale = 1;
+            AudioListener.pause = false;
             uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
+            StartCoroutine(DisconnectAndLoad());
+        }
+        IEnumerator DisconnectAndLoad()
+        {
+            PhotonNetwork.Disconnect();
+            while (PhotonNetwork.IsConnected)
+                yield return null;
+            Application.LoadLevel("AwakeScene");
         }
 
         // Update is called once per frame
@@ -462,7 +483,15 @@ namespace GreatArcStudios
             }
             else if (mainPanel.active == true)
             {
-                pauseMenu.text = "PAUSED";
+                if (Application.loadedLevelName == "SampleScene")
+                {
+                    pauseMenu.text = "PAUSED";
+                }
+                if(Application.loadedLevelName == "Multi Mode")
+                {
+                    pauseMenu.text = "THE RACE IS ON!";
+                }
+                
             }
 
             if (isPaused && mainPanel.active == false)
@@ -475,8 +504,12 @@ namespace GreatArcStudios
                 ControlPanel.SetActive(false);
                 TitleTexts.SetActive(true);
                 mask.SetActive(true);
+
+                if (Application.loadedLevelName == "SampleScene")
+                {
+                    Time.timeScale = 0;
+                }
                 
-                Time.timeScale = 0;
                 for (int i = 0; i < otherUIElements.Length; i++)
                 {
                     otherUIElements[i].gameObject.SetActive(false);

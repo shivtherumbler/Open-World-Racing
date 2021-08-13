@@ -88,6 +88,8 @@ public class controller : MonoBehaviour
 
     private void Update()
     {
+        if (!RaceMonitor.racing) manager.vertical = 0;
+
         if (SceneManager.GetActiveScene().name == "AwakeScene") return;
         addDownForce();
         AnimateWheels();
@@ -100,7 +102,7 @@ public class controller : MonoBehaviour
         activateNitrus();
         anim.SetFloat("turn", animTurn);
 
-        if(steering == true)
+        if (steering == true)
         {
             manager.horizontal = SimpleInput.GetAxis("Horizontal");
         }    
@@ -114,6 +116,7 @@ public class controller : MonoBehaviour
             manager.horizontal = Input.acceleration.x;
 
         }
+        
 
     }
 

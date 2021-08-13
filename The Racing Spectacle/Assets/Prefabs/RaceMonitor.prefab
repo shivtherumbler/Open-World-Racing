@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7116426821087287909}
   - component: {fileID: 7116426821087287908}
+  - component: {fileID: 1046194346026757372}
+  - component: {fileID: 685692991187636512}
   m_Layer: 0
   m_Name: RaceMonitor
   m_TagString: Untagged
@@ -43,11 +45,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5735793bc1ee8347923170c9980d22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDownItems: []
-  carPrefabs: []
-  spawnPos: []
+  countDownItems:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  list: {fileID: 0}
+  carPrefabs:
+  - {fileID: 162114414627767158, guid: 82fc10a45bd736e48972a3c89ee8b07e, type: 3}
+  - {fileID: 2962088815592287996, guid: 45ef393a6bd6c7040baa2f682bd2f8d6, type: 3}
+  - {fileID: 2201421293988407869, guid: 952a7979f59de7044a5016d162ac747a, type: 3}
+  - {fileID: 8575107858281717366, guid: 818d380c9b88d6e4c84b225425688987, type: 3}
+  - {fileID: 2610125035370890679, guid: f5262f722df6ffd409abc84c3e796535, type: 3}
+  spawnPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gameOverPanel: {fileID: 0}
-  PausePanel: {fileID: 0}
-  HUD: {fileID: 0}
   startRace: {fileID: 0}
   WaitingText: {fileID: 0}
+--- !u!114 &1046194346026757372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116426821087287906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 685692991187636512}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &685692991187636512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116426821087287906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1

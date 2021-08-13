@@ -18,6 +18,7 @@ public class awakeManager : MonoBehaviour
     public GameObject vehicleSelectCanvas;
     public GameObject buyButton;
     public GameObject startButton;
+    public GameObject multiplayer;
     public VehicleList listofVehicles;
     public Text currency;
     public Text carInfo;
@@ -118,6 +119,7 @@ public class awakeManager : MonoBehaviour
     {
         DefaultCanvas.SetActive(false);
         vehicleSelectCanvas.SetActive(true);
+        multiplayer.SetActive(false);
         startToFinal = true;
         finalToStart = false;
     }
@@ -126,6 +128,7 @@ public class awakeManager : MonoBehaviour
     {
         DefaultCanvas.SetActive(true);
         vehicleSelectCanvas.SetActive(false);
+        multiplayer.SetActive(true);
         finalToStart = true;
         startToFinal = false;
 

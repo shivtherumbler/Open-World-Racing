@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 7494866274192234580}
   - component: {fileID: 8322657051539215995}
   - component: {fileID: 6552843395307037810}
+  - component: {fileID: -1260121334761215714}
   m_Layer: 0
   m_Name: kart
   m_TagString: Player
@@ -172,8 +173,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162114414627767158}
-  m_LocalRotation: {x: 0, y: 0.8480481, z: -0, w: -0.5299192}
-  m_LocalPosition: {x: 111.22, y: 8.93, z: 61.39}
+  m_LocalRotation: {x: 0, y: 0.953717, z: 0, w: 0.30070582}
+  m_LocalPosition: {x: 579.41, y: 135.95, z: 208.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3436223147055211350}
@@ -477,6 +478,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1260121334761215714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162114414627767158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f16a1ffc47d2fd4cb8602176a98c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1326547262161836903
 GameObject:
   m_ObjectHideFlags: 0
@@ -14690,9 +14703,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
---- !u!4 &4666405595579195097 stripped
+--- !u!4 &4666405595579179423 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 448200, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
+  m_CorrespondingSourceObject: {fileID: 403854, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
   m_PrefabInstance: {fileID: 4666405595579041809}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4666405595579131415 stripped
@@ -14700,9 +14713,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 126470, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
   m_PrefabInstance: {fileID: 4666405595579041809}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4666405595579179423 stripped
+--- !u!4 &4666405595579195097 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 403854, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
+  m_CorrespondingSourceObject: {fileID: 448200, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
   m_PrefabInstance: {fileID: 4666405595579041809}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7871025286228157758

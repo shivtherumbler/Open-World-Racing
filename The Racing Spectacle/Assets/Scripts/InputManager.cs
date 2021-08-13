@@ -35,6 +35,7 @@ public class InputManager : MonoBehaviour
 
         if (gameObject.tag == "Player")
         {
+            if(Application.loadedLevelName == "SampleScene")
             displays[0] = GameObject.FindGameObjectWithTag("MainCamera");
         }
 

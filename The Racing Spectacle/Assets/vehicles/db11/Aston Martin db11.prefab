@@ -20815,6 +20815,7 @@ GameObject:
   - component: {fileID: 1069386298302666564}
   - component: {fileID: -6883462208612874902}
   - component: {fileID: 998295978141468356}
+  - component: {fileID: 1641132312747755182}
   m_Layer: 0
   m_Name: Aston Martin db11
   m_TagString: Player
@@ -20830,7 +20831,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8575107858281717366}
   m_LocalRotation: {x: 0, y: 0.953717, z: 0, w: 0.30070582}
-  m_LocalPosition: {x: 573.67, y: 135.95, z: 216.82}
+  m_LocalPosition: {x: 585.5, y: 135.95, z: 200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 518125947185105643}
@@ -21139,6 +21140,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1641132312747755182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8575107858281717366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f16a1ffc47d2fd4cb8602176a98c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8717622689634634180
 GameObject:
   m_ObjectHideFlags: 0
@@ -27653,14 +27666,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
---- !u!4 &5797991599839713212 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3424458061560580070, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
-  m_PrefabInstance: {fileID: 9219014477736808538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6574492431626358022 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2652003192249441628, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
+  m_PrefabInstance: {fileID: 9219014477736808538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5797991599839713212 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3424458061560580070, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
   m_PrefabInstance: {fileID: 9219014477736808538}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8248923790001005208 stripped
