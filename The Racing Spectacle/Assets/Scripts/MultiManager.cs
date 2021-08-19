@@ -1,13 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+
+using Photon.Realtime;
+using Photon.Pun;
+public class MultiManager : MonoBehaviourPunCallbacks
 {
     public VehicleList list;
+    public GameObject[] carPrefabs;
     public controller control;
     public InputManager input;
     public GameObject needle;
-    public GameObject startPos;
+    //public Transform[] startPos;
     private float startPosition = 18f, endPosition = -198f;
     private float desiredPosition;
     public Text kph;
@@ -18,20 +22,42 @@ public class GameManager : MonoBehaviour
     public float vehicleSpeed;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
-        Instantiate(list.vehicles[PlayerPrefs.GetInt("pointer")], startPos.transform.position, startPos.transform.rotation);
-        //list.vehicles[PlayerPrefs.GetInt("pointer")].tag = "Player";
-        if (Application.loadedLevelName == "Multi Mode")
+        //startPos = GameObject.Find("Start Positions").GetComponentsInChildren<Transform>();
+        //int randomStartPos = Random.Range(0, startPos.Length);
+
+
+        //foreach (Transform t in startPos)
+        //{
+            //if (t == startPos[randomStartPos]) continue;
+            //GameObject car = Instantiate(carPrefabs[Random.Range(0, carPrefabs.Length)]);
+            //car.transform.position = t.position;
+            //car.transform.rotation = t.rotation;
+        //}
+
+        /*for(int i=0;i<list.vehicles.Length;i++)
         {
-            control = null;
-            input = null;
-        }
-        else
-        control = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
-        input = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
+            Instantiate(list.vehicles[PlayerPrefs.GetInt("pointer")], startPos[i].transform.position, startPos[i].transform.rotation);
+        }*/
+        
+        //list.vehicles[PlayerPrefs.GetInt("pointer")].tag = "Player";
+        //control = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
+        //input = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
+    }
+    private void Update()
+    {
+        Debug.Log("Master: " + PhotonNetwork.IsMasterClient + " | Players In Room: " + PhotonNetwork.CurrentRoom.PlayerCount + " | RoomName: " + PhotonNetwork.CurrentRoom.Name);
     }
 
+    public void OnJoinRoom(Text RoomName)
+    {
+        //int i= 0;
+        //Instantiate(list.vehicles[PlayerPrefs.GetInt("pointer")], startPos[i].transform.position, startPos[i].transform.rotation);
+
+
+    }
+    
     private void FixedUpdate()
     {
         vehicleSpeed = control.kph;

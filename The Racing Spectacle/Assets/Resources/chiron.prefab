@@ -6833,8 +6833,8 @@ GameObject:
   - component: {fileID: -8140144608717934978}
   - component: {fileID: 7860948346968672184}
   m_Layer: 0
-  m_Name: chiron 2
-  m_TagString: Player
+  m_Name: chiron
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7000,6 +7000,7 @@ MonoBehaviour:
   kph: 0
   torque: 1500
   steeringMax: 30
+  pausing: {fileID: 0}
   driver: {fileID: 4284083169666641924}
   carPrice: 10000
   carName: Chiron
@@ -7009,9 +7010,7 @@ MonoBehaviour:
   lowPitch: 1
   highPitch: 6
   maxSpeed: 250
-  steering: 1
-  joystick: 0
-  gyroscope: 0
+  controlling: 0
   nitrusFlag: 0
   nitrusSmoke:
   - {fileID: 7738193595435958702}
@@ -52411,6 +52410,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 5355714617358969356, guid: 2630a46d0ebe35a46ad1eb928daf96e0, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2201421293988407869}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2630a46d0ebe35a46ad1eb928daf96e0, type: 3}
 --- !u!1 &5434510223837799492 stripped

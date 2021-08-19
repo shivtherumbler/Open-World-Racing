@@ -23,6 +23,7 @@ public class controller : MonoBehaviour
     public float steeringMax = 30;
    
     private InputManager manager;
+    public  GreatArcStudios.PauseManager pausing;
     private GameObject wheelMeshes, wheelColliders;
     private WheelCollider[] wheels = new WheelCollider[4];
     private GameObject[] wheelMesh = new GameObject[4];
@@ -49,9 +50,8 @@ public class controller : MonoBehaviour
     public float highPitch = 6f;
     public float maxSpeed = 200;
     private bool buttonBreak = false;
-    public bool steering = true;
-    public bool joystick = false;
-    public bool gyroscope = false;
+    public int controlling;
+    private bool ControlSet;
 
     [HideInInspector] public bool nitrusFlag = false;
     public ParticleSystem[] nitrusSmoke;
@@ -73,6 +73,7 @@ public class controller : MonoBehaviour
     void Awake()
     {
         getObjects();
+
     }
 
     private void Start()
@@ -82,13 +83,35 @@ public class controller : MonoBehaviour
             skidSmoke[i] = Instantiate(smokePrefab);
             skidSmoke[i].Stop();
         }
+            pausing = GameObject.Find("Pause Menu Manager").GetComponent<GreatArcStudios.PauseManager>();
 
+        ControlSet = false;
+
+        controlling = PlayerPrefs.GetInt("ControlScheme");
+        Debug.Log(controlling);
+        if(controlling == 1)
+        {
+            pausing.Steering();
+        }
+        if(controlling == 2)
+        {
+            pausing.JoyStick();
+            Debug.Log("Hello");
+        }
+        if(controlling == 3)
+        {
+            pausing.Automatic();
+        }
     }
-
 
     private void Update()
     {
         if (!RaceMonitor.racing) manager.vertical = 0;
+
+        if(ControlSet == false)
+        {
+            ControlSetter();
+        }
 
         if (SceneManager.GetActiveScene().name == "AwakeScene") return;
         addDownForce();
@@ -102,16 +125,16 @@ public class controller : MonoBehaviour
         activateNitrus();
         anim.SetFloat("turn", animTurn);
 
-        if (steering == true)
+        if (controlling == 1)
         {
             manager.horizontal = SimpleInput.GetAxis("Horizontal");
         }    
-        else if(joystick == true)
+        else if(controlling == 2)
         {
             manager.vertical = SimpleInput.GetAxis("Vertical");
             manager.horizontal = SimpleInput.GetAxis("Horizontal");
         }
-        else if(gyroscope == true)
+        else if(controlling == 3)
         {
             manager.horizontal = Input.acceleration.x;
 
@@ -393,6 +416,30 @@ public class controller : MonoBehaviour
         holder.parent = null;
         holder.rotation = Quaternion.Euler(90, 0, 0);
         Destroy(holder.gameObject, 30);
+    }
+
+    private void ControlSetter()
+    {
+        controlling = PlayerPrefs.GetInt("ControlScheme");
+        Debug.Log(controlling);
+        if (controlling == 1)
+        {
+            pausing.Steering();
+            ControlSet = true;
+        }
+        if (controlling == 2)
+        {
+            pausing.JoyStick();
+            ControlSet = true;
+
+            Debug.Log("Hello");
+        }
+        if (controlling == 3)
+        {
+            pausing.Automatic();
+            ControlSet = true;
+
+        }
     }
 
 }

@@ -1439,9 +1439,7 @@ namespace GreatArcStudios
             accelerator.SetActive(true);
             reverse.SetActive(true);
             Joystick.SetActive(false);
-            control.steering = true;
-            control.joystick = false;
-            control.gyroscope = false;
+            
         }
 
         public void JoyStick()
@@ -1451,9 +1449,7 @@ namespace GreatArcStudios
             accelerator.SetActive(false);
             reverse.SetActive(false);
             SteeringWheel.SetActive(false);
-            control.joystick = true;
-            control.steering = false;
-            control.gyroscope = false;
+            
         }
 
         public void Automatic()
@@ -1462,9 +1458,7 @@ namespace GreatArcStudios
             reverse.SetActive(true);
             Joystick.SetActive(false);
             SteeringWheel.SetActive(false);
-            control.gyroscope = true;
-            control.steering = false;
-            control.joystick = false;
+            
         }
 
         public void Paused()

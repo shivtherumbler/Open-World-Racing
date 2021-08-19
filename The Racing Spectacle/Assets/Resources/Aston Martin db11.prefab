@@ -20820,8 +20820,8 @@ GameObject:
   - component: {fileID: -7388726643003023762}
   - component: {fileID: -94480278500028393}
   m_Layer: 0
-  m_Name: Aston Martin db11 2
-  m_TagString: Player
+  m_Name: Aston Martin db11
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20986,6 +20986,7 @@ MonoBehaviour:
   kph: 0
   torque: 1500
   steeringMax: 30
+  pausing: {fileID: 0}
   driver: {fileID: 6574492431626358022}
   carPrice: 20000
   carName: Aston Martin
@@ -20995,9 +20996,7 @@ MonoBehaviour:
   lowPitch: 1
   highPitch: 6
   maxSpeed: 250
-  steering: 1
-  joystick: 0
-  gyroscope: 0
+  controlling: 0
   nitrusFlag: 0
   nitrusSmoke:
   - {fileID: 2432896558818713119}
@@ -27085,6 +27084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 5355714617358969356, guid: 2630a46d0ebe35a46ad1eb928daf96e0, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 8575107858281717366}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2630a46d0ebe35a46ad1eb928daf96e0, type: 3}
 --- !u!4 &764866980198495850 stripped

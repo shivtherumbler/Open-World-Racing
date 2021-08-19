@@ -15,7 +15,11 @@ public class Camera : MonoBehaviour
     
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        if(Application.loadedLevelName != "Multi Mode")
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
+        
         child = Player.transform.Find("camera constraint").gameObject;
         cameraLookat = Player.transform.Find("camera lookAt").gameObject;
         control = Player.GetComponent<controller>();

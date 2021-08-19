@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
     public GameObject SwitchButton;
     public GameObject brakeButton;
     public GameObject nitroButton;
+    public GameObject pausemenu;
 
     public Circuit way;
     public Transform currentWaypoint;
@@ -42,6 +43,7 @@ public class InputManager : MonoBehaviour
         way = GameObject.FindGameObjectWithTag("circuit").GetComponent<Circuit>();
         currentWaypoint = gameObject.transform;
         circuit = way.waypoints;
+
     }
 
     private void FixedUpdate()
@@ -74,30 +76,12 @@ public class InputManager : MonoBehaviour
             nitroButton.SetActive(false);
 
         }
-        if (this.gameObject.tag == "Player")
+        
+        else if(Application.loadedLevelName == "SampleScene")
         {
-            if (Application.loadedLevelName == "AwakeScene")
-            {
-                SwitchButton.SetActive(false);
-                brakeButton.SetActive(false);
-                nitroButton.SetActive(false);
-
-            }
-
-            else
-            {
-                SwitchButton.SetActive(true);
-                brakeButton.SetActive(true);
-                nitroButton.SetActive(true);
-
-            }
-
-        }
-        else
-        {
-            SwitchButton.SetActive(false);
-            brakeButton.SetActive(false);
-            nitroButton.SetActive(false);
+            SwitchButton.SetActive(true);
+            brakeButton.SetActive(true);
+            nitroButton.SetActive(true);
 
         }
 

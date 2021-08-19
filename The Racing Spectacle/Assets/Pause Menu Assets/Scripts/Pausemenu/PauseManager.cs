@@ -446,7 +446,6 @@ namespace GreatArcStudios
         public void returnToMenu()
         {
             
-            
             Time.timeScale = 1;
             AudioListener.pause = false;
             uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
@@ -454,10 +453,12 @@ namespace GreatArcStudios
         }
         IEnumerator DisconnectAndLoad()
         {
+            Application.LoadLevel("AwakeScene");
             PhotonNetwork.Disconnect();
+            Debug.Log("Disconnected");
             while (PhotonNetwork.IsConnected)
                 yield return null;
-            Application.LoadLevel("AwakeScene");
+            
         }
 
         // Update is called once per frame
@@ -1462,39 +1463,68 @@ namespace GreatArcStudios
         public GameObject accelerator;
         public GameObject reverse;
         public GameObject Joystick;
+        public GameObject Speedometer;
+        public GameObject view;
+        public GameObject brake;
+        public GameObject nitro;
+        public GameObject cam;
+        public GameObject pausebutton;
 
         public void Steering()
         {
-            SteeringWheel.SetActive(true);
-            accelerator.SetActive(true);
-            reverse.SetActive(true);
-            Joystick.SetActive(false);
-            control.steering = true;
-            control.joystick = false;
-            control.gyroscope = false;
+            PlayerPrefs.SetInt("ControlScheme", 1);
+            control.controlling = 1;
+            
+                SteeringWheel.SetActive(true);
+                accelerator.SetActive(true);
+                reverse.SetActive(true);
+                Joystick.SetActive(false);
+                Speedometer.SetActive(true);
+                view.SetActive(true);
+                brake.SetActive(true);
+                nitro.SetActive(true);
+                cam.SetActive(true);
+                pausebutton.SetActive(true);
+            
         }
 
         public void JoyStick()
         {
-            Joystick.SetActive(true);
-            SteeringWheel.SetActive(false);
-            accelerator.SetActive(false);
-            reverse.SetActive(false);
-            SteeringWheel.SetActive(false);
-            control.joystick = true;
-            control.steering = false;
-            control.gyroscope = false;
+            PlayerPrefs.SetInt("ControlScheme", 2);
+            control.controlling = 2;
+            
+                Joystick.SetActive(true);
+                SteeringWheel.SetActive(false);
+                accelerator.SetActive(false);
+                reverse.SetActive(false);
+                SteeringWheel.SetActive(false);
+                Speedometer.SetActive(true);
+                view.SetActive(true);
+                brake.SetActive(true);
+                nitro.SetActive(true);
+                cam.SetActive(true);
+                pausebutton.SetActive(true);
+
+
         }
 
         public void Automatic()
         {
-            accelerator.SetActive(true);
-            reverse.SetActive(true);
-            Joystick.SetActive(false);
-            SteeringWheel.SetActive(false);
-            control.gyroscope = true;
-            control.steering = false;
-            control.joystick = false;
+            PlayerPrefs.SetInt("ControlScheme", 3);
+            control.controlling = 3;
+            
+
+                accelerator.SetActive(true);
+                reverse.SetActive(true);
+                Joystick.SetActive(false);
+                SteeringWheel.SetActive(false);
+                Speedometer.SetActive(true);
+                view.SetActive(true);
+                brake.SetActive(true);
+                nitro.SetActive(true);
+                cam.SetActive(true);
+                pausebutton.SetActive(true);
+
         }
 
         public void Paused()

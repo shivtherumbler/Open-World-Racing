@@ -67,7 +67,7 @@ public class LaunchManager : MonoBehaviourPunCallbacks
 
     public void ConnectNetwork()
     {
-        RaceMonitor.totalLaps = 3;
+        RaceMonitor.totalLaps = 1;
         feedbackText.text = "";
         isConnecting = true;
 
@@ -87,6 +87,11 @@ public class LaunchManager : MonoBehaviourPunCallbacks
 
     public void OnHostRoom(Text RoomName)
     {
+        RaceMonitor.totalLaps = 1;
+        feedbackText.text = "";
+        isConnecting = true;
+
+        PhotonNetwork.NickName = playerName.text;
         if (!PhotonNetwork.IsConnected)
             return;
         TriesToConnectToRoom = true;  
@@ -94,6 +99,11 @@ public class LaunchManager : MonoBehaviourPunCallbacks
     }
     public void OnJoinRoom(Text RoomName)
     {
+        RaceMonitor.totalLaps = 1;
+        feedbackText.text = "";
+        isConnecting = true;
+
+        PhotonNetwork.NickName = playerName.text;
         if (!PhotonNetwork.IsConnected)
             return;
         TriesToConnectToRoom = true;
@@ -118,10 +128,11 @@ public class LaunchManager : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
+        
         base.OnJoinedRoom();
         TriesToConnectToRoom = false;
         PhotonNetwork.AutomaticallySyncScene = true;
-//        Debug.Log("Master: " + PhotonNetwork.IsMasterClient + " | Players In Room: " + PhotonNetwork.CurrentRoom.PlayerCount + " | RoomName: " + PhotonNetwork.CurrentRoom.Name);
+        //Debug.Log("Master: " + PhotonNetwork.IsMasterClient + " | Players In Room: " + PhotonNetwork.CurrentRoom.PlayerCount + " | RoomName: " + PhotonNetwork.CurrentRoom.Name);
     }
 
     public void SetName(string name)
@@ -175,7 +186,7 @@ public class LaunchManager : MonoBehaviourPunCallbacks
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("AwakeScene");
     }
 
     public void HowToPlay()

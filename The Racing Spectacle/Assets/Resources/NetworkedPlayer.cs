@@ -13,7 +13,7 @@ public class NetworkedPlayer : MonoBehaviourPunCallbacks
     public Rigidbody rb;
     public Renderer carMesh;
 
-    private void Awake()
+    private void Start()
     {
         if(photonView.IsMine)
         {
@@ -23,7 +23,7 @@ public class NetworkedPlayer : MonoBehaviourPunCallbacks
         {
             GameObject playerName = Instantiate(playerNamePrefab);
             playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
-            playerName.GetComponent<Text>().text = photonView.Owner.NickName;
+            //playerName.GetComponent<Text>().text = photonView.Owner.NickName;
             playerName.GetComponent<NameUIController>().carRend = carMesh;
         }
     }
