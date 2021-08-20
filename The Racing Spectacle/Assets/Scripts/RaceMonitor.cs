@@ -188,17 +188,35 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
             yield return null;
         
     }
+
     //[PunRPC]
     //public override void OnPlayerLeftRoom(Player otherPlayer)
     //{
-        //PhotonNetwork.CurrentRoom.IsOpen = false;
-        
+    //PhotonNetwork.CurrentRoom.IsOpen = false;
+
     //}
+
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom();
+        SceneManager.LoadScene("AwakeScene");
+    }
     [PunRPC]
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
-        PhotonNetwork.DestroyAll();
-        StartCoroutine(DisconnectAndLoad());
+        //PhotonNetwork.DestroyAll();
+        //StartCoroutine(DisconnectAndLoad());
+        PhotonNetwork.SetMasterClient(newMasterClient);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if(!racing)
+            {
+                startRace.SetActive(true);
+                WaitingText.SetActive(false);
+            }
+                
+
+        }
     }
 
     public void MainMenu()
