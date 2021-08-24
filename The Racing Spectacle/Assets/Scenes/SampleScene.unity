@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &71970685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7873594008529748554, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
+  m_PrefabInstance: {fileID: 411323769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &77969921 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8229449369486966239, guid: 9a1c45fcb1b9f264d88dc8477303cc45, type: 3}
@@ -754,6 +759,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 157742, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
+      propertyPath: m_Name
+      value: Pause Menu Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 157742, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 408398, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -799,6 +812,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11492038, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194225}
+    - target: {fileID: 11492038, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 963194227}
@@ -818,6 +835,10 @@ PrefabInstance:
       propertyPath: accelerator
       value: 
       objectReference: {fileID: 1391909304}
+    - target: {fileID: 11492038, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
+      propertyPath: pausebutton
+      value: 
+      objectReference: {fileID: 71970685}
     - target: {fileID: 11492038, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
       propertyPath: SteeringWheel
       value: 

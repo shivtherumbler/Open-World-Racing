@@ -285,6 +285,7 @@ namespace GreatArcStudios
         /// </summary>
         public void Start()
         {
+            car = GameObject.FindGameObjectWithTag("Player");
             control = car.GetComponent<controller>();
 
             readUseSimpleTerrain = useSimpleTerrain;

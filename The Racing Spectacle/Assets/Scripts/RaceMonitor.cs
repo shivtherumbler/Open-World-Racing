@@ -24,7 +24,7 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
     public GameObject startRace;
     public GameObject WaitingText;
 
-    int playerCar;
+    public int playerCar = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
         if(Application.loadedLevelName == "Multi Mode")
         {
-            list = null;
+            //list = null;
         }
 
         if(Application.loadedLevelName == "Multi Mode")
@@ -54,7 +54,8 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
             WaitingText.SetActive(false);
         }
 
-        playerCar = PlayerPrefs.GetInt("PlayerCar");
+        //playerCar = PlayerPrefs.GetInt("PlayerCar");
+        playerCar = PlayerPrefs.GetInt("pointer");
         int randomStartPos = Random.Range(0, spawnPos.Length);
         Vector3 startPos = spawnPos[randomStartPos].position;
         Quaternion startRot = spawnPos[randomStartPos].rotation;
@@ -67,7 +68,7 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
             if(NetworkedPlayer.LocalPlayerInstance == null)
             {
-                pCar = PhotonNetwork.Instantiate(carPrefabs[playerCar].name, startPos, startRot, 0);
+                pCar = PhotonNetwork.Instantiate(list.vehicles[playerCar].name, startPos, startRot, 0);
             }
 
             if(PhotonNetwork.IsMasterClient)
@@ -79,26 +80,28 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
                 WaitingText.SetActive(true);
             }
         }
-        
+
         {
             pCar = list.vehicles[PlayerPrefs.GetInt("pointer")];
             //pCar.tag = "Player";
             pCar.transform.position = startPos;
             pCar.transform.rotation = startRot;
-
-            foreach (Transform t in spawnPos)
+            if (Application.loadedLevelName == "SampleScene")
             {
-                if (t == spawnPos[randomStartPos]) continue;
-                //if(Application.loadedLevelName == "SampleScene")
-                //{
-                    GameObject car = Instantiate(carPrefabs[Random.Range(0, carPrefabs.Length)]);
-                    car.transform.position = t.position;
-                    car.transform.rotation = t.rotation;
-                //}
+                foreach (Transform t in spawnPos)
+                {
+                    if (t == spawnPos[randomStartPos]) continue;
+                    {
+                        GameObject car = Instantiate(carPrefabs[Random.Range(0, carPrefabs.Length)]);
+                        car.transform.position = t.position;
+                        car.transform.rotation = t.rotation;
+                    }
 
+                }
+
+
+                StartGame();
             }
-
-            StartGame();
         }
 
 

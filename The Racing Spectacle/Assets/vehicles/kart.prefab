@@ -278,6 +278,7 @@ MonoBehaviour:
   SwitchButton: {fileID: 8000862194425950800}
   brakeButton: {fileID: 1326547262161836903}
   nitroButton: {fileID: 5528194960660453956}
+  pausemenu: {fileID: 0}
   way: {fileID: 0}
   currentWaypoint: {fileID: 0}
   circuit: []

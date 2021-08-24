@@ -16859,7 +16859,7 @@ PrefabInstance:
     - target: {fileID: 11492038, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
       propertyPath: control
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5420099550870739171}
     - target: {fileID: 11492038, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
       propertyPath: mainCam
       value: 
@@ -16888,6 +16888,10 @@ PrefabInstance:
       propertyPath: SteeringWheel
       value: 
       objectReference: {fileID: 1178403128709042441}
+    - target: {fileID: 11492038, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
+      propertyPath: detailDensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7873594008529748554, guid: 861b75cfe59c43d45bdc2d2a2b73b221, type: 3}
       propertyPath: m_IsActive
       value: 0

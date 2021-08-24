@@ -7052,6 +7052,7 @@ MonoBehaviour:
   kph: 0
   torque: 1500
   steeringMax: 30
+  pausing: {fileID: 0}
   driver: {fileID: 4489939336015636726}
   carPrice: 5000
   carName: BMW
@@ -7061,9 +7062,7 @@ MonoBehaviour:
   lowPitch: 1
   highPitch: 6
   maxSpeed: 250
-  steering: 1
-  joystick: 0
-  gyroscope: 0
+  controlling: 0
   nitrusFlag: 0
   nitrusSmoke:
   - {fileID: 4531612291610910759}
@@ -7108,6 +7107,7 @@ MonoBehaviour:
   SwitchButton: {fileID: 6260648511088489283}
   brakeButton: {fileID: 1013359406543684241}
   nitroButton: {fileID: 5458864417959435092}
+  pausemenu: {fileID: 0}
   way: {fileID: 0}
   currentWaypoint: {fileID: 0}
   circuit: []

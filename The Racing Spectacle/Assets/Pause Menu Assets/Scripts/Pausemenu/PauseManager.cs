@@ -20,6 +20,9 @@ namespace GreatArcStudios
     {
         public bool isPaused;
         public GameObject car;
+        public GameObject view;
+        public GameObject brake;
+        public GameObject nitro;
 
         public controller control;
         /// <summary>
@@ -290,7 +293,11 @@ namespace GreatArcStudios
         {
             if(Application.loadedLevelName == "SampleScene")
             {
+                car = GameObject.FindGameObjectWithTag("Player");
                 control = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
+                view = GameObject.Find("First Person");
+                brake = GameObject.Find("Brake");
+                nitro = GameObject.Find("Nitrous");
             }
             if(Application.loadedLevelName == "Multi Mode")
             {
@@ -1464,9 +1471,6 @@ namespace GreatArcStudios
         public GameObject reverse;
         public GameObject Joystick;
         public GameObject Speedometer;
-        public GameObject view;
-        public GameObject brake;
-        public GameObject nitro;
         public GameObject cam;
         public GameObject pausebutton;
 
