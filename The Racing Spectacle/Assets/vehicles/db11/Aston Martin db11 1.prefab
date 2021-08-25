@@ -20656,6 +20656,7 @@ GameObject:
   - component: {fileID: 404259450991254081}
   - component: {fileID: 2023960209515158903}
   - component: {fileID: 445507511687971897}
+  - component: {fileID: 6898634957309869669}
   m_Layer: 0
   m_Name: Aston Martin db11 1
   m_TagString: AI
@@ -21008,6 +21009,19 @@ MonoBehaviour:
   checkPoint: -1
   timeEntered: 0
   lastCP: {fileID: 0}
+  race: {fileID: 0}
+--- !u!114 &6898634957309869669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8575107858281717366}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff407db75dd9104eae9e7041afdb866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8717622689634634180
 GameObject:
   m_ObjectHideFlags: 0
@@ -26752,14 +26766,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d6016f0d56b804789eda146c4898c2, type: 3}
---- !u!4 &1512456282675741773 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1512456281992428161, guid: c9d6016f0d56b804789eda146c4898c2, type: 3}
-  m_PrefabInstance: {fileID: 1766162124}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1512456282675741774 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1512456281992428162, guid: c9d6016f0d56b804789eda146c4898c2, type: 3}
+  m_PrefabInstance: {fileID: 1766162124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1512456282675741773 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1512456281992428161, guid: c9d6016f0d56b804789eda146c4898c2, type: 3}
   m_PrefabInstance: {fileID: 1766162124}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &766146060349686311
@@ -27601,13 +27615,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
---- !u!4 &8248923790001005208 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 975755726320890562, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
-  m_PrefabInstance: {fileID: 9219014477736808538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5797991599839713212 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3424458061560580070, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
+  m_PrefabInstance: {fileID: 9219014477736808538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8248923790001005208 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 975755726320890562, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
   m_PrefabInstance: {fileID: 9219014477736808538}
   m_PrefabAsset: {fileID: 0}

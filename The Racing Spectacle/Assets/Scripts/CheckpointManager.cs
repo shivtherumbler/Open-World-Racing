@@ -10,10 +10,13 @@ public class CheckpointManager : MonoBehaviour
     int checkPointCount;
     int nextCheckPoint;
     public GameObject lastCP;
+    public RaceMonitor race;
+    int i = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        race = GameObject.FindWithTag("Monitor").GetComponent<RaceMonitor>();
         GameObject[] cps = GameObject.FindGameObjectsWithTag("checkpoint");
         checkPointCount = cps.Length;
         foreach(GameObject c in cps)
@@ -46,5 +49,27 @@ public class CheckpointManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void LateUpdate()
+    {
+        if(gameObject.CompareTag("Car"))
+        {
+            if(checkPoint == 4)
+            {
+                StartCoroutine(Waiting());
+               if(i == 1)
+                {
+                    race.gameOverPanel.SetActive(true);
+                    
+                }
+            }
+        }
+    }
+
+    IEnumerator Waiting()
+    {
+        yield return new WaitForSeconds(2);
+        i = 1;
     }
 }

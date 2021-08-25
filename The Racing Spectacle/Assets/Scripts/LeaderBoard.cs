@@ -54,6 +54,9 @@ public class LeaderBoard : MonoBehaviour
                     case 2: return "Second";
                     case 3: return "Third";
                     case 4: return "Fourth";
+                    case 5: return "Fifth";
+                    case 6: return "Sixth";
+
 
                 }
         }

@@ -159,6 +159,8 @@ GameObject:
   - component: {fileID: 8322657051539215995}
   - component: {fileID: 6552843395307037810}
   - component: {fileID: -1260121334761215714}
+  - component: {fileID: 4637683250406195108}
+  - component: {fileID: 9210416528412090394}
   m_Layer: 0
   m_Name: kart
   m_TagString: Player
@@ -222,6 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drive: 2
   kph: 0
+  playerNamePrefab: {fileID: 1992300595562386275, guid: 43c55f9828dbb2440ae8318f13a13f7f, type: 3}
+  carMesh: {fileID: 2043932565319476328}
   torque: 1500
   steeringMax: 30
   pausing: {fileID: 0}
@@ -488,6 +492,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f16a1ffc47d2fd4cb8602176a98c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4637683250406195108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162114414627767158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff511497ace5294697e5182cbc8d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lap: 0
+  checkPoint: -1
+  timeEntered: 0
+  lastCP: {fileID: 0}
+  race: {fileID: 0}
+--- !u!114 &9210416528412090394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162114414627767158}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff407db75dd9104eae9e7041afdb866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1326547262161836903
@@ -8666,6 +8699,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3712445837981815578}
+  - component: {fileID: 2114621216697341938}
+  - component: {fileID: 824830482759489424}
   m_Layer: 0
   m_Name: car
   m_TagString: Car
@@ -8692,6 +8727,36 @@ Transform:
   m_Father: {fileID: 3775331415316312421}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -180.002}
+--- !u!114 &2114621216697341938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082163304725100635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff511497ace5294697e5182cbc8d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lap: 0
+  checkPoint: -1
+  timeEntered: 0
+  lastCP: {fileID: 0}
+  race: {fileID: 0}
+--- !u!65 &824830482759489424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082163304725100635}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5135257280971541107
 GameObject:
   m_ObjectHideFlags: 0
@@ -14703,6 +14768,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
+--- !u!4 &4666405595579195097 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 448200, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
+  m_PrefabInstance: {fileID: 4666405595579041809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4666405595579179423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 403854, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
@@ -14711,11 +14781,6 @@ Transform:
 --- !u!1 &4666405595579131415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 126470, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
-  m_PrefabInstance: {fileID: 4666405595579041809}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4666405595579195097 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 448200, guid: 2b57b88d3d463b84babb7a1d4b8bafff, type: 3}
   m_PrefabInstance: {fileID: 4666405595579041809}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7871025286228157758

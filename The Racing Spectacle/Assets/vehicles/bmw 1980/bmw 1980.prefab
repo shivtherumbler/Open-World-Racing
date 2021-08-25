@@ -6887,6 +6887,8 @@ GameObject:
   - component: {fileID: 2789808050951770568}
   - component: {fileID: -2936532813687353882}
   - component: {fileID: -6573433688094721615}
+  - component: {fileID: 5504394017690490833}
+  - component: {fileID: 1936334405903498597}
   m_Layer: 0
   m_Name: bmw 1980
   m_TagString: Player
@@ -7050,6 +7052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drive: 2
   kph: 0
+  playerNamePrefab: {fileID: 1992300595562386275, guid: 43c55f9828dbb2440ae8318f13a13f7f, type: 3}
+  carMesh: {fileID: 1186497089675103656}
   torque: 1500
   steeringMax: 30
   pausing: {fileID: 0}
@@ -7221,6 +7225,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f16a1ffc47d2fd4cb8602176a98c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5504394017690490833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2962088815592287996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff511497ace5294697e5182cbc8d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lap: 0
+  checkPoint: -1
+  timeEntered: 0
+  lastCP: {fileID: 0}
+  race: {fileID: 0}
+--- !u!114 &1936334405903498597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2962088815592287996}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff407db75dd9104eae9e7041afdb866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3056400580727153479
@@ -20564,6 +20597,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7067992114117819755}
+  - component: {fileID: 5363821618730158837}
+  - component: {fileID: 8687087709601632704}
   m_Layer: 0
   m_Name: body
   m_TagString: Car
@@ -20602,6 +20637,36 @@ Transform:
   m_Father: {fileID: 2251850174611578095}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
+--- !u!65 &5363821618730158837
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177401376932088753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8687087709601632704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177401376932088753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff511497ace5294697e5182cbc8d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lap: 0
+  checkPoint: -1
+  timeEntered: 0
+  lastCP: {fileID: 0}
+  race: {fileID: 0}
 --- !u!1 &8194134327713753327
 GameObject:
   m_ObjectHideFlags: 0
@@ -21917,13 +21982,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d6016f0d56b804789eda146c4898c2, type: 3}
---- !u!4 &5517618684674691529 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1512456281992428161, guid: c9d6016f0d56b804789eda146c4898c2, type: 3}
-  m_PrefabInstance: {fileID: 6372547346531658568}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5517618684674691530 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1512456281992428162, guid: c9d6016f0d56b804789eda146c4898c2, type: 3}
+  m_PrefabInstance: {fileID: 6372547346531658568}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5517618684674691529 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1512456281992428161, guid: c9d6016f0d56b804789eda146c4898c2, type: 3}
   m_PrefabInstance: {fileID: 6372547346531658568}
   m_PrefabAsset: {fileID: 0}

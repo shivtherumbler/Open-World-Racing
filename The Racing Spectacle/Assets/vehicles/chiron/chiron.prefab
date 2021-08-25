@@ -6133,6 +6133,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4846739960989625125}
+  - component: {fileID: 6569733473342946043}
+  - component: {fileID: 4494659954716665955}
   m_Layer: 0
   m_Name: bugatti_chiron
   m_TagString: Car
@@ -6163,6 +6165,36 @@ Transform:
   m_Father: {fileID: 2942641490301425710}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90.00001, y: 180, z: 0}
+--- !u!65 &6569733473342946043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424684678459482001}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4494659954716665955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424684678459482001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff511497ace5294697e5182cbc8d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lap: 0
+  checkPoint: -1
+  timeEntered: 0
+  lastCP: {fileID: 0}
+  race: {fileID: 0}
 --- !u!1 &1565903213278363433
 GameObject:
   m_ObjectHideFlags: 0
@@ -6829,6 +6861,8 @@ GameObject:
   - component: {fileID: 174993798}
   - component: {fileID: 2860542589841795963}
   - component: {fileID: 2113944992566665932}
+  - component: {fileID: 3057842533635112982}
+  - component: {fileID: 2869952307047233594}
   m_Layer: 0
   m_Name: chiron
   m_TagString: Player
@@ -6993,8 +7027,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drive: 2
   kph: 0
+  playerNamePrefab: {fileID: 1992300595562386275, guid: 43c55f9828dbb2440ae8318f13a13f7f, type: 3}
+  carMesh: {fileID: 7544593806988499106}
   torque: 1500
   steeringMax: 30
+  pausing: {fileID: 0}
   driver: {fileID: 4284083169666641924}
   carPrice: 10000
   carName: Chiron
@@ -7004,9 +7041,7 @@ MonoBehaviour:
   lowPitch: 1
   highPitch: 6
   maxSpeed: 250
-  steering: 1
-  joystick: 0
-  gyroscope: 0
+  controlling: 0
   nitrusFlag: 0
   nitrusSmoke:
   - {fileID: 7738193595435958702}
@@ -7052,6 +7087,7 @@ MonoBehaviour:
   SwitchButton: {fileID: 1565903213278363433}
   brakeButton: {fileID: 202484125547740056}
   nitroButton: {fileID: 8488929073874592938}
+  pausemenu: {fileID: 0}
   way: {fileID: 0}
   currentWaypoint: {fileID: 0}
   circuit: []
@@ -7165,6 +7201,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f16a1ffc47d2fd4cb8602176a98c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3057842533635112982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201421293988407869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff511497ace5294697e5182cbc8d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lap: 0
+  checkPoint: -1
+  timeEntered: 0
+  lastCP: {fileID: 0}
+  race: {fileID: 0}
+--- !u!114 &2869952307047233594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201421293988407869}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff407db75dd9104eae9e7041afdb866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2203677432378536844
@@ -53858,14 +53923,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
---- !u!4 &3476724337363774142 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3424458061560580070, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
-  m_PrefabInstance: {fileID: 2286087172812402008}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4284083169666641924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2652003192249441628, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
+  m_PrefabInstance: {fileID: 2286087172812402008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3476724337363774142 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3424458061560580070, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
   m_PrefabInstance: {fileID: 2286087172812402008}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8615028244460226030
@@ -54125,9 +54190,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3042413369892052922, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
   m_PrefabInstance: {fileID: 9068182060610480122}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &984388218735971810 stripped
+--- !u!1 &8321540418799318175 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8102424705716693528, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1055156650506670949, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
   m_PrefabInstance: {fileID: 9068182060610480122}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7312661370079946368 stripped
@@ -54135,13 +54200,13 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1775382853162877306, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
   m_PrefabInstance: {fileID: 9068182060610480122}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8321540418799318175 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1055156650506670949, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
-  m_PrefabInstance: {fileID: 9068182060610480122}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3775328243285553990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5313137607919080636, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
+  m_PrefabInstance: {fileID: 9068182060610480122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &984388218735971810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8102424705716693528, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
   m_PrefabInstance: {fileID: 9068182060610480122}
   m_PrefabAsset: {fileID: 0}

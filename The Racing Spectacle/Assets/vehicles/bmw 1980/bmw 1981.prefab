@@ -7140,6 +7140,7 @@ GameObject:
   - component: {fileID: 2923683435880149685}
   - component: {fileID: 8440747235344100781}
   - component: {fileID: 8545953965843280967}
+  - component: {fileID: 3835195355192422668}
   m_Layer: 0
   m_Name: bmw 1981
   m_TagString: AI
@@ -7491,6 +7492,19 @@ MonoBehaviour:
   checkPoint: -1
   timeEntered: 0
   lastCP: {fileID: 0}
+  race: {fileID: 0}
+--- !u!114 &3835195355192422668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2962088815592287996}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff407db75dd9104eae9e7041afdb866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3321368352880864855
 GameObject:
   m_ObjectHideFlags: 0

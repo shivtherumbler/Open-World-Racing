@@ -46,10 +46,10 @@ public class NameUIController : MonoBehaviour
             cpManager = target.GetComponent<CheckpointManager>();
         }
 
-       // LeaderBoard.SetPosition(carRego, cpManager.lap, cpManager.checkPoint, cpManager.timeEntered);
-       // string position = LeaderBoard.GetPosition(carRego);
+        LeaderBoard.SetPosition(carRego, cpManager.lap, cpManager.checkPoint, cpManager.timeEntered);
+        string position = LeaderBoard.GetPosition(carRego);
 
-       // posDisplay.text = position; //+ " "+ cpManager.lap + " (" + cpManager.checkPoint + ")";
+        posDisplay.text = position; //+ " "+ cpManager.lap + " (" + cpManager.checkPoint + ")";
 
     }
 }

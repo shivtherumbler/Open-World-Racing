@@ -13,7 +13,7 @@ public class Ghost : MonoBehaviour
 
     void OnEnable()
     {
-        foreach (Renderer r in rends)
+        /*foreach (Renderer r in rends)
         {
             r.material.SetFloat("_Mode", 3.0f);
             r.material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
@@ -24,12 +24,12 @@ public class Ghost : MonoBehaviour
             r.material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
             r.material.renderQueue = 3000;
             r.material.color = new Color(1, 1, 1, alpha);
-        }
+        }*/
     }
 
     void OnDisable()
     {
-        foreach (Renderer r in rends)
+        /*foreach (Renderer r in rends)
         {
             r.material.SetFloat("_Mode", 0.0f);
             r.material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
@@ -39,8 +39,8 @@ public class Ghost : MonoBehaviour
             r.material.DisableKeyword("_ALPHABLEND_ON");
             r.material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
             r.material.renderQueue = -1;
-            r.material.color = new Color(1, 1, 1, 1);
-        }
+            //r.material.color = new Color(1, 1, 1, 1);
+        }*/
     }
 
     void Update()
@@ -48,7 +48,7 @@ public class Ghost : MonoBehaviour
         alpha = 0.3f + Mathf.PingPong(Time.time * flashSpeed, 0.7f);
         foreach (Renderer r in rends)
         {
-            r.material.color = new Color(1, 1, 1, alpha);
+            //r.material.color = new Color(1, 1, 1, alpha);
         }
     }
 }

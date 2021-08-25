@@ -10,7 +10,7 @@ using Photon.Pun;
 public class RaceMonitor : MonoBehaviourPunCallbacks
 {
     public GameObject[] countDownItems;
-    CheckpointManager[] carsCPM;
+    [SerializeField]CheckpointManager[] carsCPM;
     public VehicleList list;
 
     public GameObject[] carPrefabs;
@@ -175,6 +175,10 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         if (SceneManager.GetActiveScene().name == "Sunset Mode")
         {
             SceneManager.LoadScene("Sunset Mode");
+        }
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 

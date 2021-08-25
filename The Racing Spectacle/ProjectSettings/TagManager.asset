@@ -12,6 +12,7 @@ TagManager:
   - AI
   - Bullet
   - Car
+  - Monitor
   layers:
   - Default
   - TransparentFX

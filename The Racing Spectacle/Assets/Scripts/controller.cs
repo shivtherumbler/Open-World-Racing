@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class controller : MonoBehaviour
 {
@@ -19,9 +20,17 @@ public class controller : MonoBehaviour
     public float kph;
     float rpm;
 
+    public GameObject playerNamePrefab;
+    public Renderer carMesh;
+
     public float torque = 1500;
     public float steeringMax = 30;
-   
+
+    Vector3 lastPosition;
+    Quaternion lastRotation;
+    float lastTimeMoving = 0;
+    CheckpointManager cpm;
+
     private InputManager manager;
     public  GreatArcStudios.PauseManager pausing;
     private GameObject wheelMeshes, wheelColliders;
@@ -69,6 +78,12 @@ public class controller : MonoBehaviour
     [Header("DEBUG")]
     public float[] slip = new float[4];
 
+    void ResetLayer()
+    {
+        rb.gameObject.layer = 0;
+        this.GetComponent<Ghost>().enabled = false;
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -78,6 +93,16 @@ public class controller : MonoBehaviour
 
     private void Start()
     {
+        GameObject playerName = Instantiate(playerNamePrefab);
+        playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
+        this.GetComponent<Ghost>().enabled = false;
+
+        playerName.GetComponent<Text>().text = PlayerPrefs.GetString("PlayerName");
+        playerName.GetComponent<NameUIController>().carRend = carMesh;
+
+        lastPosition = rb.gameObject.transform.position;
+        lastRotation = rb.gameObject.transform.rotation;
+
         for (int i = 0; i < 4; i++)
         {
             skidSmoke[i] = Instantiate(smokePrefab);
@@ -113,6 +138,9 @@ public class controller : MonoBehaviour
             ControlSetter();
         }
 
+        if (cpm == null)
+            cpm = rb.GetComponent<CheckpointManager>();
+
         if (SceneManager.GetActiveScene().name == "AwakeScene") return;
         addDownForce();
         AnimateWheels();
@@ -139,8 +167,38 @@ public class controller : MonoBehaviour
             manager.horizontal = Input.acceleration.x;
 
         }
-        
 
+        if (cpm.lap == RaceMonitor.totalLaps + 1)
+        {
+            highAcc.Stop();
+            return;
+        }
+
+        if (rb.velocity.magnitude > 1 || !RaceMonitor.racing)
+        {
+            lastTimeMoving = Time.time;
+        }
+
+        RaycastHit hit;
+        if (Physics.Raycast(rb.gameObject.transform.position, -Vector3.up, out hit, 10))
+        {
+            if (hit.collider.gameObject.tag == "road")
+            {
+                lastPosition = rb.gameObject.transform.position;
+                lastRotation = rb.gameObject.transform.rotation;
+            }
+
+        }
+
+        if (Time.time > lastTimeMoving + 4 || rb.gameObject.transform.position.y < -15)
+        {
+
+            rb.gameObject.transform.position = cpm.lastCP.transform.position + Vector3.up * 2;
+            rb.gameObject.transform.rotation = cpm.lastCP.transform.rotation;
+            rb.gameObject.layer = 8;
+            this.GetComponent<Ghost>().enabled = true;
+            Invoke("ResetLayer", 3);
+        }
     }
 
     private void SteerVehicle()

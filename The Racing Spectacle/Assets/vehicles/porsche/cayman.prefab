@@ -11554,6 +11554,8 @@ GameObject:
   - component: {fileID: 2637011706743269714}
   - component: {fileID: 8666680814192271688}
   - component: {fileID: 7356198647262378491}
+  - component: {fileID: 5960304087872018353}
+  - component: {fileID: 3794315643307199976}
   m_Layer: 0
   m_Name: cayman
   m_TagString: Player
@@ -11727,6 +11729,7 @@ MonoBehaviour:
   SwitchButton: {fileID: 5707376325147939263}
   brakeButton: {fileID: 4193098522914408086}
   nitroButton: {fileID: 8570260838236998060}
+  pausemenu: {fileID: 0}
   way: {fileID: 0}
   currentWaypoint: {fileID: 0}
   circuit: []
@@ -11748,8 +11751,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drive: 2
   kph: 0
+  playerNamePrefab: {fileID: 1992300595562386275, guid: 43c55f9828dbb2440ae8318f13a13f7f, type: 3}
+  carMesh: {fileID: 7566484799709150221}
   torque: 1500
   steeringMax: 30
+  pausing: {fileID: 0}
   driver: {fileID: 7951485313434807976}
   carPrice: 25000
   carName: Porsche
@@ -11759,9 +11765,7 @@ MonoBehaviour:
   lowPitch: 1
   highPitch: 6
   maxSpeed: 250
-  steering: 1
-  joystick: 0
-  gyroscope: 0
+  controlling: 0
   nitrusFlag: 0
   nitrusSmoke:
   - {fileID: 213976510078640752}
@@ -11886,6 +11890,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f16a1ffc47d2fd4cb8602176a98c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5960304087872018353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610125035370890679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff511497ace5294697e5182cbc8d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lap: 0
+  checkPoint: -1
+  timeEntered: 0
+  lastCP: {fileID: 0}
+--- !u!114 &3794315643307199976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610125035370890679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff407db75dd9104eae9e7041afdb866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3215195222083482068
@@ -13901,6 +13933,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 92510927392780421}
+  - component: {fileID: 2497571528926777407}
+  - component: {fileID: 1354660539436572059}
   m_Layer: 0
   m_Name: cayman
   m_TagString: Car
@@ -13930,6 +13964,35 @@ Transform:
   m_Father: {fileID: 1324725955716200356}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2497571528926777407
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6760689845167557774}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1354660539436572059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6760689845167557774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff511497ace5294697e5182cbc8d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lap: 0
+  checkPoint: -1
+  timeEntered: 0
+  lastCP: {fileID: 0}
 --- !u!1 &6767036781530818645
 GameObject:
   m_ObjectHideFlags: 0
@@ -20744,14 +20807,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5313137607919080636, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
   m_PrefabInstance: {fileID: 5146669262853359728}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6903957898626074890 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1775382853162877306, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
-  m_PrefabInstance: {fileID: 5146669262853359728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5316515918067309333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1055156650506670949, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
+  m_PrefabInstance: {fileID: 5146669262853359728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6903957898626074890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1775382853162877306, guid: d958382a0f0100c41828f087b0bb64d7, type: 3}
   m_PrefabInstance: {fileID: 5146669262853359728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3971396667413652072 stripped
@@ -21537,13 +21600,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
---- !u!1 &7951485313434807976 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2652003192249441628, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
-  m_PrefabInstance: {fileID: 5374086391963497460}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7283034657559688210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3424458061560580070, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
+  m_PrefabInstance: {fileID: 5374086391963497460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7951485313434807976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2652003192249441628, guid: d2ad541489cf04046a6dad89a6a3d0d9, type: 3}
   m_PrefabInstance: {fileID: 5374086391963497460}
   m_PrefabAsset: {fileID: 0}

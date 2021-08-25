@@ -77,7 +77,8 @@ GameObject:
   - component: {fileID: 3803256470095895926}
   - component: {fileID: 6558016937892320931}
   - component: {fileID: 4186232362259248294}
-  - component: {fileID: 3944759556311358322}
+  - component: {fileID: 3083063545456951938}
+  - component: {fileID: 9127225800382831112}
   m_Layer: 0
   m_Name: kart 2
   m_TagString: AI
@@ -381,7 +382,7 @@ MonoBehaviour:
   steeringSensitivity: 0.01
   accSensitivity: 0.3
   lookAhead: 12
-  cpm: {fileID: 3944759556311358322}
+  cpm: {fileID: 0}
 --- !u!114 &6558016937892320931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +411,7 @@ MonoBehaviour:
   avoidTime: 0
   wanderDistance: 4
   avoidLength: 1
---- !u!114 &3944759556311358322
+--- !u!114 &3083063545456951938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -426,6 +427,19 @@ MonoBehaviour:
   checkPoint: -1
   timeEntered: 0
   lastCP: {fileID: 0}
+  race: {fileID: 0}
+--- !u!114 &9127225800382831112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162114414627767158}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff407db75dd9104eae9e7041afdb866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &217155522272991499
 GameObject:
   m_ObjectHideFlags: 0
