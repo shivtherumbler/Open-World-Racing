@@ -21,6 +21,7 @@ public class awakeManager : MonoBehaviour
     public GameObject multiplayer;
     public VehicleList listofVehicles;
     public Text currency;
+    public int money = 0;
     public Text carInfo;
 
     public GameObject toRotate;
@@ -32,10 +33,7 @@ public class awakeManager : MonoBehaviour
     {
         DefaultCanvas.SetActive(true);
         vehicleSelectCanvas.SetActive(false);
-
         vehiclePointer = PlayerPrefs.GetInt("pointer");
-        //PlayerPrefs.SetInt("currency", 5000);
-
         GameObject childObject = Instantiate(listofVehicles.vehicles[vehiclePointer], Vector3.zero, Quaternion.identity) as GameObject;
         childObject.transform.parent = toRotate.transform;
         getCarInfo();
@@ -45,6 +43,7 @@ public class awakeManager : MonoBehaviour
     {
         
         toRotate.transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+        money = PlayerPrefs.GetInt("currency");
         cameraTransition();
         
     }
@@ -77,7 +76,9 @@ public class awakeManager : MonoBehaviour
 
     public void startGameButton()
     {
+        PlayerPrefs.SetInt("currency", money + 2000);
         SceneManager.LoadScene("SampleScene");
+        
     }
 
     public void getCarInfo()
@@ -93,6 +94,21 @@ public class awakeManager : MonoBehaviour
 
             return;
         }
+        if(PlayerPrefs.GetInt("pointer") == 0)
+        {
+        if (listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>())
+            {
+            carInfo.text = "Owned";
+            startButton.SetActive(true);
+            buyButton.SetActive(false);
+            currency.text = "$" + PlayerPrefs.GetInt("currency").ToString("");
+
+
+            return;
+            }
+        }
+        
+
 
         currency.text = "$" + PlayerPrefs.GetInt("currency").ToString("");
 
@@ -132,6 +148,11 @@ public class awakeManager : MonoBehaviour
         finalToStart = true;
         startToFinal = false;
 
+    }
+
+    public void Reset()
+    {
+        PlayerPrefs.DeleteAll();
     }
 
     public void cameraTransition()

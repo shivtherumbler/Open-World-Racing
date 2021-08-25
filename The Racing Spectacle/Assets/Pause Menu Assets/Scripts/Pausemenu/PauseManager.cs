@@ -474,6 +474,7 @@ namespace GreatArcStudios
         /// </summary>
         public void Update()
         {
+
             readUseSimpleTerrain = useSimpleTerrain;
             useSimpleTerrain = readUseSimpleTerrain;
             //colorCrossfade();

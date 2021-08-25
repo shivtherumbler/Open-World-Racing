@@ -59,7 +59,7 @@ public class controller : MonoBehaviour
     public float highPitch = 6f;
     public float maxSpeed = 200;
     private bool buttonBreak = false;
-    public int controlling;
+    public int controlling = 1;
     private bool ControlSet;
 
     [HideInInspector] public bool nitrusFlag = false;
@@ -131,6 +131,7 @@ public class controller : MonoBehaviour
 
     private void Update()
     {
+
         if (!RaceMonitor.racing) manager.vertical = 0;
 
         if(ControlSet == false)
@@ -478,7 +479,7 @@ public class controller : MonoBehaviour
 
     private void ControlSetter()
     {
-        controlling = PlayerPrefs.GetInt("ControlScheme");
+        controlling = PlayerPrefs.GetInt("ControlScheme", 1);
         Debug.Log(controlling);
         if (controlling == 1)
         {
