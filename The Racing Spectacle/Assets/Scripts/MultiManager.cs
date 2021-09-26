@@ -6,7 +6,7 @@ using Photon.Realtime;
 using Photon.Pun;
 public class MultiManager : MonoBehaviourPunCallbacks
 {
-    public VehicleList list;
+    //public VehicleList list;
     public GameObject[] carPrefabs;
     public controller control;
     public InputManager input;

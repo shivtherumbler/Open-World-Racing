@@ -87,6 +87,7 @@ public class LaunchManager : MonoBehaviourPunCallbacks
 
     public void OnHostRoom(Text RoomName)
     {
+        
         RaceMonitor.totalLaps = 1;
         feedbackText.text = "";
         isConnecting = true;
@@ -99,6 +100,7 @@ public class LaunchManager : MonoBehaviourPunCallbacks
     }
     public void OnJoinRoom(Text RoomName)
     {
+
         RaceMonitor.totalLaps = 1;
         feedbackText.text = "";
         isConnecting = true;

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NameUIController : MonoBehaviour
+using Photon.Realtime;
+using Photon.Pun;
+
+public class NameUIController : MonoBehaviourPunCallbacks
 {
     public Text playerName;
     public Text posDisplay;
@@ -25,7 +28,7 @@ public class NameUIController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         if(!RaceMonitor.racing) { canvasGroup.alpha = 0; return; }
         if(!regoSet)

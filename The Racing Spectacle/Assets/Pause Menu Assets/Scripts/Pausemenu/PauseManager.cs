@@ -302,6 +302,8 @@ namespace GreatArcStudios
             if(Application.loadedLevelName == "Multi Mode")
             {
                 control = car.GetComponent<controller>();
+                PlayerPrefs.GetInt("ControlScheme");
+                
             }
 
             readUseSimpleTerrain = useSimpleTerrain;
@@ -1474,6 +1476,7 @@ namespace GreatArcStudios
         public GameObject Speedometer;
         public GameObject cam;
         public GameObject pausebutton;
+        
 
         public void Steering()
         {

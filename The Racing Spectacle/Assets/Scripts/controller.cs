@@ -93,12 +93,24 @@ public class controller : MonoBehaviour
 
     private void Start()
     {
-        GameObject playerName = Instantiate(playerNamePrefab);
-        playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
-        this.GetComponent<Ghost>().enabled = false;
+        if(Application.loadedLevelName == "SampleScene")
+        {
+            GameObject playerName = Instantiate(playerNamePrefab);
+            playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
+            this.GetComponent<Ghost>().enabled = false;
 
-        playerName.GetComponent<Text>().text = PlayerPrefs.GetString("PlayerName");
-        playerName.GetComponent<NameUIController>().carRend = carMesh;
+            playerName.GetComponent<Text>().text = PlayerPrefs.GetString("PlayerName");
+            playerName.GetComponent<NameUIController>().carRend = carMesh;
+        }
+        else if (Application.loadedLevelName == "Multi Mode")
+        {
+            GameObject playerName = /*Instantiate*/(playerNamePrefab);
+            playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
+            this.GetComponent<Ghost>().enabled = false;
+
+            playerName.GetComponent<Text>().text = PlayerPrefs.GetString("PlayerName");
+            playerName.GetComponent<NameUIController>().carRend = carMesh;
+        }
 
         lastPosition = rb.gameObject.transform.position;
         lastRotation = rb.gameObject.transform.rotation;

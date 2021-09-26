@@ -17,13 +17,17 @@ public class NetworkedPlayer : MonoBehaviourPunCallbacks
     {
         if(photonView.IsMine)
         {
-            LocalPlayerInstance = gameObject;
+            //LocalPlayerInstance = gameObject;
+            GameObject playerName = Instantiate(playerNamePrefab);
+            playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
+            playerName.GetComponent<Text>().text = photonView.Owner.NickName;
+            playerName.GetComponent<NameUIController>().carRend = carMesh;
         }
         else
         {
             GameObject playerName = Instantiate(playerNamePrefab);
             playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
-            //playerName.GetComponent<Text>().text = photonView.Owner.NickName;
+            playerName.GetComponent<Text>().text = photonView.Owner.NickName;
             playerName.GetComponent<NameUIController>().carRend = carMesh;
         }
     }

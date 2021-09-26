@@ -69,7 +69,7 @@ public class CheckpointManager : MonoBehaviour
 
     IEnumerator Waiting()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         i = 1;
     }
 }
