@@ -6,6 +6,7 @@ public class Camera : MonoBehaviour
 {
     public GameObject Player;
     private controller control;
+    private ArduinoController controller;
     private GameObject child;
     private GameObject cameraLookat;
     public float speed;
@@ -23,6 +24,7 @@ public class Camera : MonoBehaviour
         child = Player.transform.Find("camera constraint").gameObject;
         cameraLookat = Player.transform.Find("camera lookAt").gameObject;
         control = Player.GetComponent<controller>();
+        //controller = Player.GetComponent<ArduinoController>();
         defaultFOV = UnityEngine.Camera.main.fieldOfView;
     }
 
@@ -37,14 +39,15 @@ public class Camera : MonoBehaviour
     private void follow()
     {
         speed = Mathf.Lerp(speed, control.kph / 2, Time.deltaTime);
-
+        
         gameObject.transform.position = Vector3.Lerp(transform.position, child.transform.position, Time.deltaTime * speed);
         gameObject.transform.LookAt(Player.gameObject.transform.position);
     }
 
     private void boostFOV()
     {
-        if(control.nitrusFlag)
+        UnityEngine.Camera.main.fieldOfView = Mathf.Lerp(UnityEngine.Camera.main.fieldOfView, desiredFOV, Time.deltaTime * smoothTime);
+        if (control.nitrusFlag)
         {
             UnityEngine.Camera.main.fieldOfView = Mathf.Lerp(UnityEngine.Camera.main.fieldOfView, desiredFOV, Time.deltaTime * smoothTime);
         }

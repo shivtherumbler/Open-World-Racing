@@ -31,7 +31,8 @@ public class controller : MonoBehaviour
     float lastTimeMoving = 0;
     CheckpointManager cpm;
 
-    private InputManager manager;
+    //private InputManager manager;
+    private ArduinoInputManager manager;
     public  GreatArcStudios.PauseManager pausing;
     private GameObject wheelMeshes, wheelColliders;
     private WheelCollider[] wheels = new WheelCollider[4];
@@ -75,6 +76,7 @@ public class controller : MonoBehaviour
     public AudioSource highAcc;
     public AudioSource skidSound;
 
+
     [Header("DEBUG")]
     public float[] slip = new float[4];
 
@@ -93,18 +95,29 @@ public class controller : MonoBehaviour
 
     private void Start()
     {
-        if(Application.loadedLevelName == "SampleScene")
+        //if(Application.loadedLevelName == "SampleScene")
+        //{
+        //    GameObject playerName = Instantiate(playerNamePrefab);
+        //    playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
+        //    this.GetComponent<Ghost>().enabled = false;
+
+        //    playerName.GetComponent<Text>().text = PlayerPrefs.GetString("PlayerName");
+        //    playerName.GetComponent<NameUIController>().carRend = carMesh;
+        //}
+
+        //else if (Application.loadedLevelName == "Multi Mode")
+        //{
+        //    GameObject playerName = /*Instantiate*/(playerNamePrefab);
+        //    playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
+        //    this.GetComponent<Ghost>().enabled = false;
+
+        //    playerName.GetComponent<Text>().text = PlayerPrefs.GetString("PlayerName");
+        //    playerName.GetComponent<NameUIController>().carRend = carMesh;
+        //}
+
+        if (Application.loadedLevelName == "ArduinoTest")
         {
             GameObject playerName = Instantiate(playerNamePrefab);
-            playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
-            this.GetComponent<Ghost>().enabled = false;
-
-            playerName.GetComponent<Text>().text = PlayerPrefs.GetString("PlayerName");
-            playerName.GetComponent<NameUIController>().carRend = carMesh;
-        }
-        else if (Application.loadedLevelName == "Multi Mode")
-        {
-            GameObject playerName = /*Instantiate*/(playerNamePrefab);
             playerName.GetComponent<NameUIController>().target = rb.gameObject.transform;
             this.GetComponent<Ghost>().enabled = false;
 
@@ -120,36 +133,36 @@ public class controller : MonoBehaviour
             skidSmoke[i] = Instantiate(smokePrefab);
             skidSmoke[i].Stop();
         }
-            pausing = GameObject.Find("Pause Menu Manager").GetComponent<GreatArcStudios.PauseManager>();
+            //pausing = GameObject.Find("Pause Menu Manager").GetComponent<GreatArcStudios.PauseManager>();
 
-        ControlSet = false;
+        //ControlSet = false;
 
-        controlling = PlayerPrefs.GetInt("ControlScheme");
-        Debug.Log(controlling);
-        if(controlling == 1)
-        {
-            pausing.Steering();
-        }
-        if(controlling == 2)
-        {
-            pausing.JoyStick();
-            Debug.Log("Hello");
-        }
-        if(controlling == 3)
-        {
-            pausing.Automatic();
-        }
+        //controlling = PlayerPrefs.GetInt("ControlScheme");
+        //Debug.Log(controlling);
+        //if(controlling == 1)
+        //{
+        //    pausing.Steering();
+        //}
+        //if(controlling == 2)
+        //{
+        //    pausing.JoyStick();
+        //    Debug.Log("Hello");
+        //}
+        //if(controlling == 3)
+        //{
+        //    pausing.Automatic();
+        //}
     }
 
     private void Update()
     {
 
-        if (!RaceMonitor.racing) manager.vertical = 0;
+       if (!RaceMonitor.racing) manager.vertical = 0;
 
-        if(ControlSet == false)
-        {
-            ControlSetter();
-        }
+        //if(ControlSet == false)
+        //{
+        //    ControlSetter();
+        //}
 
         if (cpm == null)
             cpm = rb.GetComponent<CheckpointManager>();
@@ -166,20 +179,20 @@ public class controller : MonoBehaviour
         activateNitrus();
         anim.SetFloat("turn", animTurn);
 
-        if (controlling == 1)
-        {
-            manager.horizontal = SimpleInput.GetAxis("Horizontal");
-        }    
-        else if(controlling == 2)
-        {
-            manager.vertical = SimpleInput.GetAxis("Vertical");
-            manager.horizontal = SimpleInput.GetAxis("Horizontal");
-        }
-        else if(controlling == 3)
-        {
-            manager.horizontal = Input.acceleration.x;
+        //if (controlling == 1)
+        //{
+        //    manager.horizontal = SimpleInput.GetAxis("Horizontal");
+        //}    
+        //else if(controlling == 2)
+        //{
+        //    manager.vertical = SimpleInput.GetAxis("Vertical");
+        //    manager.horizontal = SimpleInput.GetAxis("Horizontal");
+        //}
+        //else if(controlling == 3)
+        //{
+        //    manager.horizontal = Input.acceleration.x;
 
-        }
+        //}
 
         if (cpm.lap == RaceMonitor.totalLaps + 1)
         {
@@ -350,7 +363,8 @@ public class controller : MonoBehaviour
 
     private void getObjects()
     {
-        manager = GetComponent<InputManager>();
+        //manager = GetComponent<InputManager>();
+        manager = GetComponent<ArduinoInputManager>();
         rb = GetComponent<Rigidbody>();
         anim = driver.GetComponent<Animator>();
         wheelColliders = GameObject.Find("wheelColliders");
@@ -489,28 +503,28 @@ public class controller : MonoBehaviour
         Destroy(holder.gameObject, 30);
     }
 
-    private void ControlSetter()
-    {
-        controlling = PlayerPrefs.GetInt("ControlScheme", 1);
-        Debug.Log(controlling);
-        if (controlling == 1)
-        {
-            pausing.Steering();
-            ControlSet = true;
-        }
-        if (controlling == 2)
-        {
-            pausing.JoyStick();
-            ControlSet = true;
+    //private void ControlSetter()
+    //{
+    //    controlling = PlayerPrefs.GetInt("ControlScheme", 1);
+    //    Debug.Log(controlling);
+    //    if (controlling == 1)
+    //    {
+    //        pausing.Steering();
+    //        ControlSet = true;
+    //    }
+    //    if (controlling == 2)
+    //    {
+    //        pausing.JoyStick();
+    //        ControlSet = true;
 
-            Debug.Log("Hello");
-        }
-        if (controlling == 3)
-        {
-            pausing.Automatic();
-            ControlSet = true;
+    //        Debug.Log("Hello");
+    //    }
+    //    if (controlling == 3)
+    //    {
+    //        pausing.Automatic();
+    //        ControlSet = true;
 
-        }
-    }
+    //    }
+    //}
 
 }

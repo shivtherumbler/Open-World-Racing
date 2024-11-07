@@ -16,7 +16,7 @@ public class CheckpointManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        race = GameObject.FindWithTag("Monitor").GetComponent<RaceMonitor>();
+        //race = GameObject.FindWithTag("Monitor").GetComponent<RaceMonitor>();
         GameObject[] cps = GameObject.FindGameObjectsWithTag("checkpoint");
         checkPointCount = cps.Length;
         foreach(GameObject c in cps)

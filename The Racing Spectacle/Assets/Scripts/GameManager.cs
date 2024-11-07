@@ -5,7 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public VehicleList list;
     public controller control;
-    public InputManager input;
+    //public InputManager input;
+    public ArduinoInputManager input;
     public GameObject needle;
     public GameObject startPos;
     private float startPosition = 18f, endPosition = -198f;
@@ -29,7 +30,9 @@ public class GameManager : MonoBehaviour
         }
         else
         control = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
-        input = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
+        //input = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
+        input = GameObject.FindGameObjectWithTag("Player").GetComponent<ArduinoInputManager>();
+        input.displays[0].SetActive(true);
     }
 
     private void FixedUpdate()

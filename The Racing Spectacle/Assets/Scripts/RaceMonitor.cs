@@ -86,7 +86,23 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
             //pCar.tag = "Player";
             pCar.transform.position = startPos;
             pCar.transform.rotation = startRot;
-            if (Application.loadedLevelName == "SampleScene")
+            //if (Application.loadedLevelName == "SampleScene")
+            //{
+            //    foreach (Transform t in spawnPos)
+            //    {
+            //        if (t == spawnPos[randomStartPos]) continue;
+            //        {
+            //            GameObject car = Instantiate(carPrefabs[Random.Range(0, carPrefabs.Length)]);
+            //            car.transform.position = t.position;
+            //            car.transform.rotation = t.rotation;
+            //        }
+
+            //    }
+
+
+            //    StartGame();
+            //}
+            if (Application.loadedLevelName == "ArduinoTest")
             {
                 foreach (Transform t in spawnPos)
                 {
@@ -237,10 +253,14 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
     void LateUpdate()
     {
         if (!racing) return;
-        if(racing == true)
+        if(Application.loadedLevelName != "ArduinoTest")
         {
-            PhotonNetwork.CurrentRoom.IsOpen = false;
+            if (racing == true)
+            {
+                PhotonNetwork.CurrentRoom.IsOpen = false;
+            }
         }
+
         int finishedCount = 0;
         foreach(CheckpointManager cpm in carsCPM)
         {

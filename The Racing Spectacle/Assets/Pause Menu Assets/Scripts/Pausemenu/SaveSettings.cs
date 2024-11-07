@@ -131,7 +131,7 @@ namespace GreatArcStudios
                 QualitySettings.antiAliasing = read.msaaINI;
                 QualitySettings.vSyncCount = read.vsyncINI;
                 PauseManager.lastTexLimit = read.textureLimit;
-                QualitySettings.masterTextureLimit = read.textureLimit;
+                QualitySettings.globalTextureMipmapLimit = read.textureLimit;
                 AudioListener.volume = read.masterVolume;
                 PauseManager.lastAudioMult = read.effectsVolume;
                 PauseManager.lastMusicMult = read.musicVolume;

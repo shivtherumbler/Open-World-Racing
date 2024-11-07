@@ -77,8 +77,8 @@ public class awakeManager : MonoBehaviour
     public void startGameButton()
     {
         PlayerPrefs.SetInt("currency", money + 2000);
-        SceneManager.LoadScene("SampleScene");
-        
+        //SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("ArduinoTest");
     }
 
     public void getCarInfo()
@@ -86,10 +86,11 @@ public class awakeManager : MonoBehaviour
         if(listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>().carName.ToString() == 
             PlayerPrefs.GetString(listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>().carName.ToString()))
         {
-            carInfo.text = "Owned";
-            startButton.SetActive(true);
-            buyButton.SetActive(false);
-            currency.text = "$" + PlayerPrefs.GetInt("currency").ToString("");
+            carInfo.text = listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>().carName.ToString();
+            //carInfo.text = "Owned";
+            //startButton.SetActive(true);
+            //buyButton.SetActive(false);
+            //currency.text = "$" + PlayerPrefs.GetInt("currency").ToString("");
 
 
             return;
@@ -98,26 +99,27 @@ public class awakeManager : MonoBehaviour
         {
         if (listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>())
             {
-            carInfo.text = "Owned";
-            startButton.SetActive(true);
-            buyButton.SetActive(false);
-            currency.text = "$" + PlayerPrefs.GetInt("currency").ToString("");
+                carInfo.text = listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>().carName.ToString();
+                //carInfo.text = "Owned";
+                //startButton.SetActive(true);
+                //buyButton.SetActive(false);
+                //currency.text = "$" + PlayerPrefs.GetInt("currency").ToString("");
 
 
-            return;
+                return;
             }
         }
-        
 
 
-        currency.text = "$" + PlayerPrefs.GetInt("currency").ToString("");
+
+        //currency.text = "$" + PlayerPrefs.GetInt("currency").ToString("");
 
 
-        carInfo.text = listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>().carName.ToString() +
-               " $" + listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>().carPrice.ToString();
+        carInfo.text = listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>().carName.ToString(); 
+               // +" $" + listofVehicles.vehicles[PlayerPrefs.GetInt("pointer")].GetComponent<controller>().carPrice.ToString();
 
-        startButton.SetActive(false);
-        buyButton.SetActive(true);
+        //startButton.SetActive(false);
+        //buyButton.SetActive(true);
     }
     public void buyingButton()
     {
