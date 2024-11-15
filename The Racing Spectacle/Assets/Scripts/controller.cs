@@ -308,8 +308,15 @@ public class controller : MonoBehaviour
         }
 
         kph = rb.velocity.magnitude * 3.6f;
-        
 
+        if (manager.braking)
+        {
+            OnBrakeDown();
+        }
+        else
+        {
+            OnBrakeUp();
+        }
 
         /*if(manager.handbrake)
         {

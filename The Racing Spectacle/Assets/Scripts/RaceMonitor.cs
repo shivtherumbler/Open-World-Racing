@@ -144,10 +144,14 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         WaitingText.SetActive(false);
 
         GameObject[] cars = GameObject.FindGameObjectsWithTag("Car");
+        
+       
         carsCPM = new CheckpointManager[cars.Length];
         for (int i = 0; i < cars.Length; i++)
         {
+            //Debug.Log(cars[i]);
             carsCPM[i] = cars[i].GetComponent<CheckpointManager>();
+            //Debug.Log(carsCPM[i]);
         }
     }
 
@@ -195,6 +199,10 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
             SceneManager.LoadScene("SampleScene");
+        }
+        if(SceneManager.GetActiveScene().name == "ArduinoTest")
+        {
+            SceneManager.LoadScene("ArduinoTest");
         }
     }
 
@@ -261,20 +269,33 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
             }
         }
 
-        int finishedCount = 0;
-        foreach(CheckpointManager cpm in carsCPM)
+        //int finishedCount = 0;
+        for (int i = 0; i < carsCPM.Length; i++)
         {
-            if(cpm.lap == totalLaps + 1)
+            if(carsCPM[i].transform.parent.tag == "Player")
             {
-                finishedCount++;
+                if(carsCPM[i].lap == totalLaps + 1)
+                {
+                    gameOverPanel.SetActive(true);
+                }
             }
-            if(finishedCount == carsCPM.Length)
-            {
-                //HUD.SetActive(false);
-                gameOverPanel.SetActive(true);
-            }
-
+            
         }
+        //foreach(CheckpointManager cpm in carsCPM)
+        //{
+        //    if(cpm.lap == totalLaps + 1)
+        //    {
+        //        finishedCount++;
+        //    }
+        //    if(finishedCount == carsCPM.Length)
+        //    {
+
+        //        //HUD.SetActive(false);
+        //        gameOverPanel.SetActive(true);
+              
+        //    }
+
+        //}
 
     }
 
